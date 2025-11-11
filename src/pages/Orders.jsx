@@ -1,10 +1,11 @@
 import { Header } from "../components/Header";
 import "./Orders.css";
 
-
 export function Orders() {
   return (
     <>
+      <link rel="icon" type="image/svg+xm" href="/orders-favicon.png" />
+      
       <Header />
 
       <div className="orders-page">
