@@ -4,26 +4,21 @@ import { useEffect, useState } from "react";
 import { Header } from "../components/Header";
 import { products } from "../../starting-code/data/products";
 
-export function HomePage() {
+export function HomePage({ cart }) {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
   useEffect(() => {
     axios
       .get("/api/products") // Asynchronous cannot be saved into a variable
       .then((response) => {
         setProducts(response.data);
       });
-
-    axios.get("/api/cart-items").then((response) => {
-      setCart(response.data);
-    });
   }, []);
 
   return (
     <>
       <link rel="icon" type="image/svg+xml" href="/home-favicon.png" />
 
-      <Header cart = {cart}/>
+      <Header cart={cart} />
       <div className="home-page">
         <div className="products-grid">
           {products.map((product) => {
