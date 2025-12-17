@@ -9,12 +9,12 @@ export function HomePage() {
   const [cart, setCart] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/products") // Asynchronous cannot be saved into a variable
+      .get("/api/products") // Asynchronous cannot be saved into a variable
       .then((response) => {
         setProducts(response.data);
       });
 
-    axios.get("http://localhost:3000/api/cart-items").then((response) => {
+    axios.get("/api/cart-items").then((response) => {
       setCart(response.data);
     });
   }, []);
