@@ -1,13 +1,14 @@
 import "./HomePage.css";
+import axios from "axios";
 import { Header } from "../components/Header";
 import { products } from "../../starting-code/data/products";
 
 export function HomePage() {
-  fetch("http://localhost:3000/api/products") // Asynchronous cannot be saved into a variable
+  axios
+    .get("http://localhost:3000/api/products") // Asynchronous cannot be saved into a variable
     .then((response) => {
-      return response.json();
-    })
-    .then((data) => console.log(data));
+      console.log(response.data);
+    });
 
   return (
     <>
